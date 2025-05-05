@@ -1,0 +1,15 @@
+name: Flujo de trabajo para traducir las issues que no están en inglés
+on:
+  workflow_dispatch:
+  issues:
+    types: [opened, edited]
+jobs:
+  Translation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Traducción al ingés de las issues
+        uses: usthe/issues-translate-action@v2.7
+        with:
+          IS_MODIFY_TITLE: false
+          CUSTOM_BOT_NOTE: El bot ha detectado que el lenguage de la issue no es ingés, lo traduce automáticamente.
+    
